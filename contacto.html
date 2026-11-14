@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Admisión | Detox Mental Wellness</title>
+  <meta name="description" content="Aplica para el programa Detox Mental Wellness de Diana Molina o comunícate directamente con nuestro equipo de admisiones por WhatsApp.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="site-navbar" role="navigation" aria-label="Navegación principal">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo-flat.jpg" alt="Logo Detox Mental Wellness" width="52" height="52">
+        <div class="brand-logo-text">
+          <span class="brand-logo-title">DETOX MENTAL</span>
+          <span class="brand-logo-sub">w e l l n e s s</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="primaryNavMenu">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="programa.html" class="nav-link">El Programa (5 Pilares)</a></li>
+        <li><a href="talleres.html" class="nav-link">Talleres Online</a></li>
+        <li><a href="precios.html" class="nav-link">Planes e Inversión</a></li>
+        <li><a href="sobre-diana.html" class="nav-link">Sobre Diana Molina</a></li>
+        <li><a href="contacto.html" class="nav-link active">Contacto y Admisión</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="precios.html" class="btn btn-primary btn-sm">Empezar Ahora</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero-wrapper" style="padding: 70px 0 40px;">
+      <div class="container">
+        <span class="section-tag section-tag-emerald">Admisiones y Diagnóstico</span>
+        <h1 style="max-width: 800px; margin: 0 auto 20px;">
+          Hablemos de tu Caso <span class="serif-accent-emerald">sin Rodeos</span>
+        </h1>
+        <p style="max-width: 680px; margin: 0 auto; font-size: 1.2rem;">
+          Completa el formulario de postulación para evaluar si calificas para el programa o escríbenos directamente por WhatsApp para resolver tus dudas de inscripción.
+        </p>
+      </div>
+    </header>
+
+    <section class="section-padding-sm" style="background: var(--canvas-surface);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto;">
+          
+          <!-- FORMULARIO DE ADMISIÓN -->
+          <div style="background: var(--canvas-bg); border: 1.5px solid var(--canvas-border); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-sm);">
+            <h2 style="font-size: 1.8rem; margin-bottom: 8px; color: var(--emerald-950);">Formulario de Postulación</h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px;">
+              Revisamos cada caso de forma confidencial para asegurar que la metodología sea la adecuada para ti.
+            </p>
+
+            <form id="admissionForm" onsubmit="event.preventDefault(); document.getElementById('formSuccessMsg').style.display='block'; this.reset();">
+              <div style="display: flex; flex-direction: column; gap: 18px;">
+                
+                <div>
+                  <label for="inputName" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Nombre Completo *</label>
+                  <input type="text" id="inputName" required placeholder="Ej. Mariana González" style="width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--canvas-border); font-family: inherit; font-size: 1rem;">
+                </div>
+
+                <div>
+                  <label for="inputEmail" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Correo Electrónico *</label>
+                  <input type="email" id="inputEmail" required placeholder="mariana@ejemplo.com" style="width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--canvas-border); font-family: inherit; font-size: 1rem;">
+                </div>
+
+                <div>
+                  <label for="inputPhone" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">WhatsApp (con código de país) *</label>
+                  <input type="tel" id="inputPhone" required placeholder="+52 55 1234 5678" style="width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--canvas-border); font-family: inherit; font-size: 1rem;">
+                </div>
+
+                <div>
+                  <label for="selectIssue" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">¿Cuál es tu mayor obstáculo en este momento? *</label>
+                  <select id="selectIssue" required style="width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--canvas-border); font-family: inherit; font-size: 1rem; background: #FFFFFF;">
+                    <option value="">Selecciona una opción...</option>
+                    <option value="limites">No sé decir NO sin culpa (Límites familiares o laborales)</option>
+                    <option value="overthinking">Overthinking crónico y ansiedad que no me deja dormir</option>
+                    <option value="autoestima">Inseguridad, baja autoestima y búsqueda de validación</option>
+                    <option value="relaciones">Ruptura dolorosa, soltar al ex o patrones de relaciones tóxicas</option>
+                    <option value="disciplina">Procrastinación, falta de rutinas y pretextos constantes</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="selectPlan" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">¿A qué plan te interesa ingresar? *</label>
+                  <select id="selectPlan" required style="width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--canvas-border); font-family: inherit; font-size: 1rem; background: #FFFFFF;">
+                    <option value="vip">Detox VIP ($397 USD - Llamadas en vivo semanales)</option>
+                    <option value="premium">Detox Premium ($997 USD - Sesiones privadas 1 a 1)</option>
+                    <option value="basico">Detox Básico ($297 USD - Autónomo con IA)</option>
+                    <option value="dudas">Aún tengo dudas y quiero orientación previa</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="inputDesc" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Cuéntale a Diana en 2 líneas tu situación actual:</label>
+                  <textarea id="inputDesc" rows="3" placeholder="Ej. Llevo meses sintiendo culpa cuando no estoy disponible para mi familia y quiero aprender a poner límites..." style="width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--canvas-border); font-family: inherit; font-size: 1rem;"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;">
+                  Enviar Solicitud de Admisión
+                </button>
+
+                <div id="formSuccessMsg" style="display: none; background: var(--emerald-100); color: var(--emerald-900); padding: 16px; border-radius: var(--radius-md); text-align: center; font-weight: 700; border: 1px solid var(--emerald-500); margin-top: 10px;">
+                  ¡Solicitud recibida con éxito! Diana o alguien de su equipo te contactará por WhatsApp en menos de 4 horas hábiles.
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+          <!-- SIDEBAR DE ATENCIÓN DIRECTA -->
+          <div>
+            
+            <div style="background: var(--gold-50); border: 2px solid var(--gold-400); border-radius: var(--radius-xl); padding: 36px; margin-bottom: 30px;">
+              <span class="section-tag" style="background: var(--gold-100); color: var(--gold-800); margin-bottom: 12px;">Vía Rápida</span>
+              <h3 style="font-size: 1.5rem; color: var(--emerald-950); margin-bottom: 12px;">¿Prefieres hablar directamente?</h3>
+              <p style="font-size: 0.95rem; color: var(--text-primary); line-height: 1.6; margin-bottom: 20px;">
+                Si tienes dudas específicas sobre las formas de pago, compatibilidad de horarios para las sesiones en vivo o planes en cuotas, escríbenos a nuestro canal prioritario.
+              </p>
+              
+              <a href="https://wa.me/?text=Hola%20Diana,%20quiero%20hacer%20una%20consulta%20directa%20sobre%20Detox%20Mental" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                Chatear por WhatsApp Ahora
+              </a>
+            </div>
+
+            <div style="background: var(--canvas-alt); border: 1px solid var(--canvas-border); border-radius: var(--radius-xl); padding: 32px;">
+              <h4 style="color: var(--emerald-950); margin-bottom: 14px;">Información Clave de Atención:</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                <li><strong>📍 Modalidad:</strong> 100% Online vía Zoom y plataforma privada.</li>
+                <li><strong>🌎 Cobertura:</strong> México, Estados Unidos, Colombia y toda LATAM.</li>
+                <li><strong>⏰ Horario de Soporte:</strong> Lunes a Viernes de 9:00 a 18:00 (CDMX).</li>
+                <li><strong>🔒 Confidencialidad:</strong> Ética clínica y protección de datos absoluta.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Detox Mental Wellness por Diana Molina. Todos los derechos reservados.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="index.html">Inicio</a>
+          <a href="programa.html">El Programa</a>
+          <a href="talleres.html">Talleres</a>
+          <a href="precios.html">Planes</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

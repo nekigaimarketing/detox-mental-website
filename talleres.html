@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario de Talleres y Seminarios Online | Detox Mental Wellness</title>
+  <meta name="description" content="Calendario de talleres y seminarios clínicos online en vivo con la psicóloga Diana Molina. Aprender a vivir con la ausencia, límites familiares y cierre de ciclos.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Fraunces Editorial Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <style>
+    .calendar-container {
+      margin-top: 20px;
+    }
+    .seminar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .seminar-box {
+      background: var(--canvas-surface);
+      border: 1px solid var(--canvas-border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .seminar-box:hover {
+      border-color: var(--emerald-600);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -10px rgba(10, 46, 37, 0.12);
+    }
+    .seminar-box.featured-box {
+      border: 2px solid var(--emerald-800);
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--gold-50) 100%);
+      box-shadow: 0 12px 30px -8px rgba(10, 46, 37, 0.15);
+    }
+    .seminar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .badge-open {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+    .badge-upcoming {
+      background: var(--gold-100);
+      color: var(--gold-900);
+      border: 1px solid var(--gold-300);
+    }
+    .seminar-pillars-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--emerald-900);
+      background: rgba(10, 46, 37, 0.06);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .seminar-meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 18px 0 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--canvas-border);
+    }
+    .seminar-meta-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .seminar-price-tag {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .seminar-price-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--emerald-950);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="site-navbar" role="navigation" aria-label="Navegación principal">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo-flat.jpg" alt="Logo Detox Mental Wellness" width="52" height="52">
+        <div class="brand-logo-text">
+          <span class="brand-logo-title">DETOX MENTAL</span>
+          <span class="brand-logo-sub">w e l l n e s s</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="primaryNavMenu">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="programa.html" class="nav-link">El Programa (5 Pilares)</a></li>
+        <li><a href="talleres.html" class="nav-link active">Talleres Online</a></li>
+        <li><a href="precios.html" class="nav-link">Planes e Inversión</a></li>
+        <li><a href="sobre-diana.html" class="nav-link">Sobre Diana Molina</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto y Admisión</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="taller-ausencia.html" class="btn btn-primary btn-sm">Próximo Taller</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================= HEADER / CALENDAR AT THE TOP ================= -->
+    <header class="section-padding hero-wrapper" style="padding-top: 60px; padding-bottom: 30px; text-align: center;">
+      <div class="bg-aura-gold" style="top: -60px; left: 50%; transform: translateX(-50%);"></div>
+      
+      <div class="container container-narrow" style="position: relative; z-index: 2;">
+        <span class="section-tag section-tag-emerald">Programación Continua · 100% Online vía Zoom</span>
+        
+        <h1 class="hero-title" style="margin-bottom: 20px;">
+          Calendario de <span class="serif-accent-emerald">Talleres y Seminarios Clínicos</span>
+        </h1>
+
+        <p class="hero-subtitle" style="max-width: 780px; margin: 0 auto; font-size: 1.15rem;">
+          Espacios intensivos en vivo diseñados para resolver nudos emocionales puntuales (duelo, límites familiares, relaciones inconclusas y procrastinación) mediante Terapia Cognitivo-Conductual y <strong>Escritura Terapéutica</strong>. Elige el taller que necesitas y haz clic para ver todos los detalles.
+        </p>
+      </div>
+    </header>
+
+    <!-- ================= CALENDARIO DE SEMINARIOS (GRID DE CAJAS) ================= -->
+    <section class="section-padding-sm" style="background: var(--canvas-alt); border-top: 1px solid var(--canvas-border); padding-top: 40px; padding-bottom: 60px;">
+      <div class="container">
+        
+        <div class="seminar-grid">
+
+          <!-- ================= CAJA 1: PRÓXIMO TALLER (APRENDER A VIVIR CON LA AUSENCIA) ================= -->
+          <article class="seminar-box featured-box" id="taller-ausencia">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <span class="seminar-badge badge-open">
+                  <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #16A34A; animation: pulseSubtle 1.5s infinite;"></span>
+                  Próxima Fecha en Vivo · Inscripciones Abiertas
+                </span>
+                <span style="font-size: 0.78rem; font-weight: 700; color: #991B1B; background: #FEE2E2; padding: 2px 10px; border-radius: 100px;">
+                  Solo 30 Lugares
+                </span>
+              </div>
+
+              <span class="seminar-pillars-tag">🌓 Pilar 02 (Regular) + 🌔 Pilar 04 (Conectar)</span>
+
+              <h2 style="font-size: 1.6rem; color: var(--emerald-950); margin: 6px 0 10px; line-height: 1.2;">
+                Aprender a Vivir con la Ausencia
+              </h2>
+
+              <p style="font-size: 0.96rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                Un taller online intensivo de 2 horas para comprender, regular y atravesar el duelo tras la pérdida de un ser querido, sin sentir que avanzar significa olvidar o traicionar su recuerdo.
+              </p>
+
+              <ul class="seminar-meta-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span><strong>Duración:</strong> 2 Horas en Vivo (+ 45 min opción VIP)</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  <span><strong>Formato:</strong> 100% Online vía Zoom + Grabación 1 año</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span><strong>Incluye:</strong> Cuaderno digital de Escritura Terapéutica</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="seminar-price-tag">
+                <span class="seminar-price-val">$47</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">USD (~$890 MXN) · Opción VIP $97 USD</span>
+              </div>
+              <a href="taller-ausencia.html" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+                Ver Todos los Detalles del Taller <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================= CAJA 2: LÍMITES CON LA FAMILIA ================= -->
+          <article class="seminar-box">
+            <div>
+              <span class="seminar-badge badge-upcoming">
+                Próximamente · Lista de Espera
+              </span>
+
+              <span class="seminar-pillars-tag">🌑 Pilar 01: PROTEGER</span>
+
+              <h2 style="font-size: 1.5rem; color: var(--emerald-950); margin: 6px 0 10px; line-height: 1.2;">
+                Cómo Poner Límites con tu Familia
+              </h2>
+
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                <em>Sin sentirte mala hija (y sin pelear).</em> Aprende el protocolo conductual de 3 frases para decir NO a demandas, intromisiones y culpas familiares sin que te tiemblen las piernas.
+              </p>
+
+              <ul class="seminar-meta-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span><strong>Duración:</strong> 2 Horas en Vivo vía Zoom</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span><strong>Material:</strong> Plantillas de conversación y respuestas asertivas</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  <span><strong>Cupo:</strong> Limitado a 30 participantes</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="seminar-price-tag">
+                <span class="seminar-price-val">$47</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">USD (~$890 MXN)</span>
+              </div>
+              <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20quiero%20anotarme%20en%20la%20lista%20de%20espera%20del%20taller%20Límites%20con%20la%20Familia" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;" target="_blank" rel="noopener">
+                Anotarme a Lista de Espera <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================= CAJA 3: LO QUE QUEDÓ PENDIENTE ================= -->
+          <article class="seminar-box">
+            <div>
+              <span class="seminar-badge badge-upcoming">
+                Próximamente · Lista de Espera
+              </span>
+
+              <span class="seminar-pillars-tag">🌔 Pilar 04: CONECTAR + 🌓 Pilar 02</span>
+
+              <h2 style="font-size: 1.5rem; color: var(--emerald-950); margin: 6px 0 10px; line-height: 1.2;">
+                Lo Que Quedó Pendiente
+              </h2>
+
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                Un taller para comprender y sanar los vínculos inconclusos tras una muerte o ruptura difícil, cuando ya no es posible tener esa última conversación o recibir una disculpa.
+              </p>
+
+              <ul class="seminar-meta-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span><strong>Duración:</strong> 2 Horas en Vivo vía Zoom</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span><strong>Material:</strong> Ejercicios de reparación interna y cierre</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span><strong>Enfoque:</strong> Reparación interna sin necesidad del otro</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="seminar-price-tag">
+                <span class="seminar-price-val">$47</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">USD (~$890 MXN)</span>
+              </div>
+              <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20quiero%20anotarme%20en%20la%20lista%20de%20espera%20del%20taller%20Lo%20Que%20Quedó%20Pendiente" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;" target="_blank" rel="noopener">
+                Anotarme a Lista de Espera <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================= CAJA 4: CONSTRUYENDO MI AÑO ================= -->
+          <article class="seminar-box">
+            <div>
+              <span class="seminar-badge badge-upcoming">
+                Próximamente · Lista de Espera
+              </span>
+
+              <span class="seminar-pillars-tag">🌕 Pilar 05: CREAR</span>
+
+              <h2 style="font-size: 1.5rem; color: var(--emerald-950); margin: 6px 0 10px; line-height: 1.2;">
+                Construyendo Mi Año con Claridad
+              </h2>
+
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                De la complacencia y la procrastinación a la acción deliberada. Cómo estructurar metas conductuales no negociables de 15 minutos sin quemarte en el intento.
+              </p>
+
+              <ul class="seminar-meta-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span><strong>Duración:</strong> 2.5 Horas en Vivo + Taller de Planificación</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span><strong>Material:</strong> Guía Digital "Construyendo Mi Año"</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span><strong>Enfoque:</strong> Hábitos sostenibles y psicología de ejecución</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="seminar-price-tag">
+                <span class="seminar-price-val">$47</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">USD (~$890 MXN)</span>
+              </div>
+              <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20quiero%20anotarme%20en%20la%20lista%20de%20espera%20del%20taller%20Construyendo%20Mi%20Año" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;" target="_blank" rel="noopener">
+                Anotarme a Lista de Espera <span>→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= POR QUÉ EN VIVO CON DIANA ================= -->
+    <section class="section-padding" style="background: var(--canvas-surface);">
+      <div class="container container-narrow">
+        <div class="section-header" style="margin-bottom: 36px;">
+          <span class="section-tag section-tag-emerald">La Metodología Diana Molina</span>
+          <h2>¿Por qué un Taller en Vivo en Lugar de un Curso Grabado?</h2>
+          <p>La diferencia entre acumular información en un cajón y generar un cambio emocional real.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="background: var(--canvas-alt); padding: 28px; border-radius: var(--radius-lg); border: 1px solid var(--canvas-border);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">👥</div>
+            <h3 style="color: var(--emerald-950); font-size: 1.15rem; margin-bottom: 8px;">Contención y Respuesta en Tiempo Real</h3>
+            <p style="font-size: 0.93rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              El dolor, la culpa y el duelo necesitan un espacio seguro. Diana responde preguntas específicas, adapta las dinámicas al grupo y ofrece contención clínica directa en vivo.
+            </p>
+          </div>
+
+          <div style="background: var(--canvas-alt); padding: 28px; border-radius: var(--radius-lg); border: 1px solid var(--canvas-border);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">✍️</div>
+            <h3 style="color: var(--emerald-950); font-size: 1.15rem; margin-bottom: 8px;">Escritura Terapéutica Guiada</h3>
+            <p style="font-size: 0.93rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              No vienes a ser un espectador pasivo. Durante la sesión completamos protocolos escritos que reorganizan pensamientos y calman la reactividad en el cuerpo en ese mismo instante.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA BANNER ================= -->
+    <section class="dark-emerald-section section-padding-sm" style="text-align: center;">
+      <div class="container container-narrow">
+        <h2 style="font-size: 2.2rem; margin-bottom: 16px;">¿Quieres orientación sobre qué taller o programa elegir?</h2>
+        <p style="font-size: 1.15rem; margin-bottom: 28px; color: rgba(250,247,242,0.85);">
+          Conversa con el equipo clínico de Diana por WhatsApp para identificar si tu momento actual requiere un taller intensivo o el programa integral de 5 Pilares.
+        </p>
+        <a href="https://wa.me/5215500000000?text=Hola,%20quisiera%20orientación%20sobre%20los%20talleres%20de%20Detox%20Mental" class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+          Consultar por WhatsApp con el Equipo
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Detox Mental Wellness por Diana Molina. Todos los derechos reservados.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="index.html">Inicio</a>
+          <a href="programa.html">El Programa</a>
+          <a href="talleres.html">Talleres</a>
+          <a href="precios.html">Planes</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

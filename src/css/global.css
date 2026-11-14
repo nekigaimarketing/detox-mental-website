@@ -1,0 +1,304 @@
+@import './variables.css';
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--canvas-bg);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+h3 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); }
+h4 { font-size: 1.25rem; font-weight: 700; }
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Editorial Serif Accent (Fraunces italic) */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold-600);
+}
+
+.serif-accent-emerald {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--emerald-800);
+}
+
+/* Strikethrough Effect for Provocative Copy */
+del.strike-bold {
+  text-decoration: none;
+  position: relative;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+del.strike-bold::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  top: 50%;
+  width: 108%;
+  height: 4px;
+  background-color: var(--crimson-red);
+  transform: rotate(-3deg);
+  border-radius: 2px;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.container-narrow {
+  max-width: 860px;
+}
+
+.section-padding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section-padding-sm {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 60px;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-100);
+  color: var(--gold-800);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  border: 1px solid var(--gold-300);
+}
+
+.section-tag-emerald {
+  background: var(--emerald-50);
+  color: var(--emerald-800);
+  border-color: var(--emerald-100);
+}
+
+.section-header h2 {
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 1.15rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--emerald-800);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-emerald);
+}
+
+.btn-primary:hover {
+  background-color: var(--emerald-700);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -8px rgba(14, 56, 44, 0.5);
+  color: #FFFFFF;
+}
+
+.btn-gold {
+  background-color: var(--gold-500);
+  color: var(--emerald-950);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  background-color: var(--gold-400);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(197, 160, 89, 0.45);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--emerald-900);
+  border-color: var(--emerald-800);
+}
+
+.btn-outline:hover {
+  background-color: var(--emerald-800);
+  color: #FFFFFF;
+}
+
+.btn-white {
+  background-color: #FFFFFF;
+  color: var(--emerald-900);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-white:hover {
+  background-color: var(--gold-50);
+  color: var(--emerald-950);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 10px 22px;
+  font-size: 0.88rem;
+}
+
+.btn-lg {
+  padding: 20px 44px;
+  font-size: 1.12rem;
+}
+
+/* Badges & Trust Pills */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.trust-badge svg {
+  color: var(--gold-600);
+}
+
+/* Dark Contrast Section (Emerald Rich) */
+.dark-emerald-section {
+  background-color: var(--emerald-900);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-emerald-section h1, 
+.dark-emerald-section h2, 
+.dark-emerald-section h3, 
+.dark-emerald-section h4 {
+  color: #FFFFFF;
+}
+
+.dark-emerald-section p {
+  color: rgba(250, 247, 242, 0.82);
+}
+
+.dark-emerald-section .section-header p {
+  color: rgba(250, 247, 242, 0.85);
+}
+
+/* Subtle background grain & aura gradients */
+.bg-aura-gold {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, rgba(197, 160, 89, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-aura-emerald {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 56, 44, 0.08) 0%, rgba(14, 56, 44, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Micro-animations */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+
+.pulse-animation {
+  animation: pulseSubtle 3s infinite ease-in-out;
+}
+
+/* Responsive Utilities */
+@media (max-width: 968px) {
+  .section-padding { padding-top: 70px; padding-bottom: 70px; }
+  .section-header { margin-bottom: 40px; }
+}

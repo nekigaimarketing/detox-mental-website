@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Online: Aprender a Vivir con la Ausencia | Lic. Diana Molina</title>
+  <meta name="description" content="Taller intensivo en vivo con la psicóloga Diana Molina. Comprender el duelo, regular el dolor y volver a vivir sin sentir que continuar tu vida significa olvidar a quien amas.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Fraunces Editorial Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <style>
+    /* High-Converting Sales Landing Page Styles */
+    .urgency-topbar {
+      background: #7F1D1D;
+      color: #FEE2E2;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      position: sticky;
+      top: 0;
+      z-index: 101;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .urgency-topbar span.highlight {
+      color: var(--gold-300);
+      text-decoration: underline;
+    }
+    .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--emerald-800);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Video Sales Container (Brunson / Hormozi VSL) */
+    .video-sales-wrapper {
+      max-width: 900px;
+      margin: 36px auto 0;
+      background: var(--emerald-950);
+      border-radius: var(--radius-2xl);
+      padding: 16px;
+      box-shadow: 0 25px 60px -15px rgba(10, 46, 37, 0.4);
+      border: 2px solid var(--gold-400);
+    }
+    .video-sales-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px 14px;
+      color: var(--gold-200);
+      font-size: 0.9rem;
+      font-weight: 600;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .video-sales-header .badge {
+      background: rgba(212, 175, 55, 0.2);
+      color: var(--gold-300);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      border: 1px solid var(--gold-500);
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #000000;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+    }
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-placeholder-poster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(10, 46, 37, 0.4) 0%, rgba(9, 38, 30, 0.9) 100%), url('/assets/diana-portrait-1.webp') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      text-align: center;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    .video-placeholder-poster:hover {
+      background: linear-gradient(180deg, rgba(10, 46, 37, 0.25) 0%, rgba(9, 38, 30, 0.82) 100%), url('/assets/diana-portrait-1.webp') center/cover no-repeat;
+    }
+    .video-play-button {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-950);
+      box-shadow: 0 0 0 12px rgba(212, 175, 55, 0.25), 0 10px 25px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .video-placeholder-poster:hover .video-play-button {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 18px rgba(212, 175, 55, 0.35), 0 15px 30px rgba(0, 0, 0, 0.6);
+    }
+    .video-caption-strip {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      color: #FFFFFF;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Hormozi Grand Slam Value Stack */
+    .hormozi-stack-box {
+      background: var(--canvas-surface);
+      border: 2px solid var(--emerald-800);
+      border-radius: var(--radius-2xl);
+      padding: 44px;
+      margin: 40px auto 0;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .stack-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px dashed var(--canvas-border);
+      font-size: 1.05rem;
+    }
+    .stack-item-row:last-child {
+      border-bottom: none;
+    }
+    .stack-item-row .val-strike {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .stack-total-bar {
+      background: var(--gold-100);
+      border: 1px solid var(--gold-400);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* 3-Tier Value Ladder Pricing */
+    .ladder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .ladder-card {
+      background: var(--canvas-surface);
+      border: 1px solid var(--canvas-border);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .ladder-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--emerald-600);
+    }
+    .ladder-card.featured-ladder {
+      border: 2px solid var(--emerald-800);
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--gold-50) 100%);
+      box-shadow: 0 16px 40px -10px rgba(10, 46, 37, 0.18);
+      transform: scale(1.02);
+    }
+    .ladder-card.featured-ladder:hover {
+      transform: scale(1.02) translateY(-4px);
+    }
+    .ladder-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--emerald-950);
+      color: var(--gold-300);
+      padding: 4px 16px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      border: 1px solid var(--gold-500);
+    }
+    .price-strike-small {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Protocol Step Pill */
+    .protocol-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--emerald-950);
+      color: var(--gold-300);
+      padding: 8px 18px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.92rem;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 960px) {
+      .ladder-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .ladder-card.featured-ladder { transform: none; }
+      .ladder-card.featured-ladder:hover { transform: translateY(-4px); }
+      .hormozi-stack-box { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= URGENT TOPBAR (CARDONE / BRUNSON SCARCITY) ================= -->
+  <aside class="urgency-topbar" role="alert">
+    🔥 <strong>PREVENTA OFICIAL:</strong> Sala Zoom con cupo estrictamente limitado a 30 personas. <span class="highlight">Ahorra $100 MXN antes del cierre de preventa</span>.
+  </aside>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="site-navbar" role="navigation" aria-label="Navegación principal">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo-flat.jpg" alt="Logo Detox Mental Wellness" width="52" height="52">
+        <div class="brand-logo-text">
+          <span class="brand-logo-title">DETOX MENTAL</span>
+          <span class="brand-logo-sub">w e l l n e s s</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="primaryNavMenu">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="programa.html" class="nav-link">El Programa (5 Pilares)</a></li>
+        <li><a href="talleres.html" class="nav-link active">Talleres Online</a></li>
+        <li><a href="precios.html" class="nav-link">Planes e Inversión</a></li>
+        <li><a href="sobre-diana.html" class="nav-link">Sobre Diana Molina</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto y Admisión</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#precios-taller" class="btn btn-primary btn-sm">Asegurar Lugar en Preventa</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================= HERO SECTION (RUSSELL BRUNSON HOOK & OFFER) ================= -->
+    <header class="section-padding hero-wrapper" style="padding-top: 40px; padding-bottom: 40px; text-align: center;">
+      <div class="bg-aura-gold" style="top: -60px; left: 50%; transform: translateX(-50%);"></div>
+      
+      <div class="container" style="position: relative; z-index: 2;">
+        
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-nav" style="justify-content: center;">
+          <a href="index.html">Inicio</a>
+          <span>/</span>
+          <a href="talleres.html">Talleres Online</a>
+          <span>/</span>
+          <span>Aprender a Vivir con la Ausencia</span>
+        </div>
+
+        <span class="section-tag section-tag-emerald" style="margin-bottom: 16px;">
+          Taller Clínico Intensivo en Vivo · 2 Horas vía Zoom con la Lic. Diana Molina
+        </span>
+
+        <!-- Master Headline (Dedo en la llaga / Hook) -->
+        <h1 class="hero-title" style="max-width: 960px; margin: 0 auto 20px; font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.12;">
+          Comprender el duelo, regular el dolor y volver a vivir <span class="serif-accent-emerald">sin sentir que continuar tu vida significa olvidar a quien amas.</span>
+        </h1>
+
+        <!-- Subheadline (Root Cause & Solution) -->
+        <p class="hero-subtitle" style="max-width: 860px; margin: 0 auto 28px; font-size: 1.22rem; line-height: 1.65;">
+          El dolor no se cura por decreto ni distrayéndote. Aprende la herramienta clínica en 4 pasos (<strong>Pausar → Nombrar → Sostener → Elegir</strong>) para frenar la culpa en 90 segundos, aliviar la opresión física en el cuerpo y honrar su memoria desde la serenidad, no desde el sufrimiento perpetuo.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px;">
+          <a href="#precios-taller" class="btn btn-primary btn-lg" style="font-size: 1.1rem; padding: 18px 36px;">
+            Asegurar Mi Lugar en Preventa ($397 MXN) <span>→</span>
+          </a>
+          <a href="#video-seccion" class="btn btn-outline btn-lg">
+            Ver Video de Diana (1:45 min)
+          </a>
+        </div>
+
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+          🔒 Pago 100% Seguro · <strong>Garantía Ética del 100%</strong> · Acceso Inmediato al Protocolo de Emergencia
+        </p>
+
+        <!-- ================= DEDICATED VIDEO CONTAINER (REQUESTED BY USER) ================= -->
+        <section class="video-sales-wrapper" id="video-seccion" aria-label="Video del taller">
+          <div class="video-sales-header">
+            <span style="display: flex; align-items: center; gap: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              Mensaje Especial de la Psicóloga Diana Molina
+            </span>
+            <span class="badge">⏱ Duración: 1:45 min · Mira esto antes de reservar</span>
+          </div>
+
+          <!-- 16:9 Video Box (Ready for Video Embed) -->
+          <div class="video-container" id="videoPlayerBox">
+            <!-- Fallback poster / Play overlay (Swappable for iframe or video element) -->
+            <div class="video-placeholder-poster" onclick="alert('El video se activará con tu enlace oficial de YouTube/Vimeo/Loom.');">
+              <div class="video-play-button" aria-label="Reproducir video de Diana Molina">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+              <span class="video-caption-strip">
+                ▶ Clic para reproducir: "¿Por qué sentimos culpa al volver a sonreír?"
+              </span>
+            </div>
+          </div>
+
+          <!-- Video Under-Bar CTA -->
+          <div style="padding: 16px 12px 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <span style="color: rgba(255, 255, 255, 0.85); font-size: 0.92rem;">
+              📅 <strong>Fecha en Vivo:</strong> Próximo Sábado 10:00 AM CDMX · 100% Online vía Zoom
+            </span>
+            <a href="#precios-taller" class="btn btn-gold btn-sm" style="font-size: 0.88rem;">
+              Apartar Lugar ($397 MXN)
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </header>
+
+    <!-- ================= AGITAR EL DOLOR Y CREENCIA FALSA (BRUNSON EPIPHANY) ================= -->
+    <section class="section-padding" style="background: var(--canvas-surface); border-top: 1px solid var(--canvas-border);">
+      <div class="container container-narrow">
+        
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="section-tag section-tag-emerald">La Causa Raíz Psicológica</span>
+          <h2 style="font-size: clamp(1.9rem, 3.5vw, 2.5rem); color: var(--emerald-950);">
+            ¿Por qué duele tanto volver a sonreír o retomar tu vida?
+          </h2>
+          <p style="font-size: 1.12rem; color: var(--text-secondary); line-height: 1.7;">
+            Si has perdido a alguien importante y sientes una punzada de culpa cada vez que te descubres riendo, disfrutando una comida o haciendo planes, <strong>no significa que seas una persona fría o insensible</strong>. Ocurre por un mecanismo clínico real:
+          </p>
+        </div>
+
+        <div style="background: var(--gold-50); border: 1px solid var(--gold-300); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 36px;">
+          <h3 style="font-size: 1.35rem; color: var(--emerald-950); margin-bottom: 12px;">
+            🧠 La Trampa de la "Falsa Lealtad"
+          </h3>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+            De manera inconsciente, <strong>tu cerebro asocia el sufrimiento con la lealtad</strong>. Cree erróneamente que continuar sufriendo es la única prueba de que esa persona te sigue importando, y que volver a disfrutar equivale a traicionarla o dejarla en el olvido. Pero el amor hacia quien partió no se mide por cuánto te destruyes en el presente.
+          </p>
+        </div>
+
+        <!-- 3 Mitos Destruidos -->
+        <h3 style="font-size: 1.4rem; color: var(--emerald-950); margin-bottom: 20px;">
+          Tres mentiras destructivas sobre el duelo que te han hecho daño:
+        </h3>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px;">
+          
+          <div style="background: var(--canvas-alt); border-left: 4px solid var(--crimson-red); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+            <strong style="color: var(--crimson-red); font-size: 1.05rem; display: block; margin-bottom: 6px;">
+              ✕ Mentira 1: "El tiempo lo cura todo."
+            </strong>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              <strong>La verdad clínica:</strong> El tiempo por sí solo no cura nada. Cuando una emoción no se procesa, el cuerpo la acumula en forma de opresión en el pecho, insomnio y niebla mental. Por eso meses después, una fecha o un recuerdo detona una ola de angustia incontrolable.
+            </p>
+          </div>
+
+          <div style="background: var(--canvas-alt); border-left: 4px solid var(--crimson-red); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+            <strong style="color: var(--crimson-red); font-size: 1.05rem; display: block; margin-bottom: 6px;">
+              ✕ Mentira 2: "Tienes que ser fuerte por los demás y distraerte."
+            </strong>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              <strong>La verdad clínica:</strong> Distraerte es poner una venda sobre una herida abierta. Aprender a sostener tu dolor sin reprimirlo es lo único que le devuelve la calma a tu sistema nervioso.
+            </p>
+          </div>
+
+          <div style="background: var(--canvas-alt); border-left: 4px solid var(--crimson-red); padding: 20px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+            <strong style="color: var(--crimson-red); font-size: 1.05rem; display: block; margin-bottom: 6px;">
+              ✕ Mentira 3: "La culpa de los 'hubiera' durará para siempre."
+            </strong>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              <strong>La verdad clínica:</strong> La culpa es solo el dolor buscando una explicación para no sentirse impotente. En este taller aprenderás a separar lo que estaba fuera de tu control de las decisiones que tomaste con el amor y los recursos que tenías.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= EL MECANISMO SECRETO: PROTOCOLO 4 PASOS ================= -->
+    <section class="section-padding" style="background: var(--canvas-alt); border-top: 1px solid var(--canvas-border);">
+      <div class="container container-narrow">
+        
+        <div class="section-header" style="margin-bottom: 36px;">
+          <span class="section-tag section-tag-emerald">La Herramienta Clínica Central</span>
+          <h2 style="font-size: 2.3rem; color: var(--emerald-950);">El Protocolo Clínico de 4 Fases</h2>
+          <p style="font-size: 1.1rem; color: var(--text-secondary);">
+            Qué hacer en 90 segundos cuando una ola de angustia, llanto o culpa te golpea en el trabajo, en tu casa o manejando:
+          </p>
+        </div>
+
+        <div style="background: var(--canvas-surface); border: 2px solid var(--gold-400); border-radius: var(--radius-2xl); padding: 36px; box-shadow: var(--shadow-md);">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
+            <span class="protocol-step">1. PAUSAR</span>
+            <span class="protocol-step">2. NOMBRAR</span>
+            <span class="protocol-step">3. SOSTENER</span>
+            <span class="protocol-step">4. ELEGIR</span>
+          </div>
+
+          <p style="font-size: 1.05rem; color: var(--text-primary); line-height: 1.7; margin-bottom: 16px;">
+            No necesitas retirarte horas a meditar ni fingir que nada pasó. Este protocolo somático conductual te enseña a:
+          </p>
+
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.98rem; color: var(--text-secondary);">
+            <li>✓ <strong>Pausar:</strong> Interrumpir la respuesta de hiperventilación y alerta en el sistema nervioso.</li>
+            <li>✓ <strong>Nombrar:</strong> Darle etiqueta biológica exacta a la sensación (tristeza, rabia, impotencia o culpa).</li>
+            <li>✓ <strong>Sostener:</strong> Permitir que la ola química de 90 segundos baje sin atacarte mentalmente.</li>
+            <li>✓ <strong>Elegir:</strong> Decidir con claridad qué conducta constructiva realizar para cuidarte en ese instante.</li>
+          </ul>
+
+          <div style="margin-top: 28px; padding-top: 20px; border-top: 1px dashed var(--canvas-border); text-align: center;">
+            <p style="font-weight: 700; color: var(--emerald-950); margin-bottom: 12px;">
+              🎁 Regalo Inmediato: Al inscribirte hoy, descargas este Protocolo en PDF para tenerlo en tu teléfono.
+            </p>
+            <a href="#precios-taller" class="btn btn-primary">Reservar Mi Lugar en Preventa ($397 MXN)</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= TEMARIO CLÍNICO COMPLETO (5 MÓDULOS) ================= -->
+    <section class="section-padding" id="temario" style="background: var(--canvas-surface);">
+      <div class="container container-narrow">
+        
+        <div class="section-header" style="text-align: left; margin-bottom: 36px;">
+          <span class="section-tag section-tag-emerald">Estructura del Taller</span>
+          <h2 style="font-size: 2.3rem; color: var(--emerald-950);">Los 5 Módulos Clínicos en Vivo</h2>
+          <p style="font-size: 1.08rem; color: var(--text-secondary);">
+            Diseñado para llevarte del caos y la culpa a la paz y la claridad en una sola sesión de 2 horas:
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- MÓDULO 1 -->
+          <div style="background: var(--canvas-alt); border: 1px solid var(--canvas-border); border-radius: var(--radius-xl); padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--gold-800); background: var(--gold-100); padding: 4px 12px; border-radius: 100px;">
+                Módulo 01 · Comprensión
+              </span>
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Fundamento</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: var(--emerald-950); margin-bottom: 8px;">
+              1. Entender el Duelo: <em>¿Por qué sigo sintiéndome así?</em>
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Lo que ocurre en tu mente y cuerpo tras la pérdida. Desmitificar que el duelo sea lineal o tenga un "plazo límite", y comprender que avanzar no significa olvidar.
+            </p>
+          </div>
+
+          <!-- MÓDULO 2 -->
+          <div style="background: var(--canvas-alt); border: 1px solid var(--canvas-border); border-radius: var(--radius-xl); padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--gold-800); background: var(--gold-100); padding: 4px 12px; border-radius: 100px;">
+                Módulo 02 · Regulación Somática
+              </span>
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Herramienta Práctica</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: var(--emerald-950); margin-bottom: 8px;">
+              2. Regular el Dolor sin Reprimirlo: <em>Sentir no significa perder el control</em>
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              La diferencia clínica entre controlar y regular. Aprende a aplicar el protocolo de 4 pasos (Pausar, Nombrar, Sostener, Elegir) para no ahogarte en la tristeza o la ansiedad.
+            </p>
+          </div>
+
+          <!-- MÓDULO 3 -->
+          <div style="background: var(--canvas-alt); border: 1px solid var(--canvas-border); border-radius: var(--radius-xl); padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--gold-800); background: var(--gold-100); padding: 4px 12px; border-radius: 100px;">
+                Módulo 03 · Desarme de Culpa
+              </span>
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Los "Hubiera"</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: var(--emerald-950); margin-bottom: 8px;">
+              3. Culpa y "Lo que hubiera pasado si...": <em>Cuando la mente intenta cambiar el pasado</em>
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Diferenciar responsabilidad real de culpa retrospectiva. Desarmar los pensamientos que te castigan por cosas que nunca estuvieron bajo tu control.
+            </p>
+          </div>
+
+          <!-- MÓDULO 4 -->
+          <div style="background: var(--canvas-alt); border: 1px solid var(--canvas-border); border-radius: var(--radius-xl); padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--gold-800); background: var(--gold-100); padding: 4px 12px; border-radius: 100px;">
+                Módulo 04 · Permiso Emocional
+              </span>
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Cierre General</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: var(--emerald-950); margin-bottom: 8px;">
+              4. Seguir Viviendo sin Sentir que Olvidas: <em>Permiso ético para disfrutar</em>
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Darte el permiso ético de sonreír, hacer proyectos y disfrutar sin culpa, construyendo un vínculo sereno que te acompañe toda la vida.
+            </p>
+          </div>
+
+          <!-- MÓDULO 5 (VIP) -->
+          <div style="background: linear-gradient(180deg, #FFFFFF 0%, var(--gold-50) 100%); border: 2px solid var(--gold-500); border-radius: var(--radius-xl); padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--gold-300); background: var(--emerald-950); padding: 4px 14px; border-radius: 100px;">
+                ⭐ Módulo 05 · Exclusivo Pase VIP (Solo 12 Lugares)
+              </span>
+              <span style="font-size: 0.85rem; color: var(--emerald-900); font-weight: 700;">45 min adicionales</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: var(--emerald-950); margin-bottom: 8px;">
+              5. Recordar, Honrar y Continuar: <em>El vínculo puede cambiar sin desaparecer</em>
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Sesión íntima con cámara y micrófono abiertos con Diana para crear tu propio ritual de memoria para aniversarios y diseñar un plan guiado de autocuidado.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= HORMOZI GRAND SLAM VALUE STACK ================= -->
+    <section class="section-padding" style="background: var(--canvas-alt); border-top: 1px solid var(--canvas-border);">
+      <div class="container container-narrow">
+        
+        <div class="section-header" style="margin-bottom: 30px;">
+          <span class="section-tag section-tag-emerald">Alex Hormozi Grand Slam Offer</span>
+          <h2>Todo lo que Recibes al Inscribirte Hoy</h2>
+          <p>Un paquete integral para que no dependas solo de una sesión, sino que te lleves un sistema para siempre:</p>
+        </div>
+
+        <div class="hormozi-stack-box">
+          
+          <div class="stack-item-row">
+            <div>
+              <strong style="color: var(--emerald-950); display: block;">✓ Taller Online en Vivo de 2 Horas con Diana Molina</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">Los 4 módulos clínicos con psicología conductual vía Zoom</span>
+            </div>
+            <span class="val-strike">$1,500 MXN</span>
+          </div>
+
+          <div class="stack-item-row">
+            <div>
+              <strong style="color: var(--emerald-950); display: block;">✓ Cuaderno Digital de Trabajo con Ejercicios de Escritura Terapéutica</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">Para procesar y realizar a tu propio ritmo cuando lo necesites</span>
+            </div>
+            <span class="val-strike">$450 MXN</span>
+          </div>
+
+          <div class="stack-item-row">
+            <div>
+              <strong style="color: var(--emerald-950); display: block;">✓ Protocolo Somático de Emergencia en PDF Descargable</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">Para calmar la angustia en 90 segundos durante aniversarios o crisis</span>
+            </div>
+            <span class="val-strike">$350 MXN</span>
+          </div>
+
+          <div class="stack-item-row">
+            <div>
+              <strong style="color: var(--emerald-950); display: block;">✓ Acceso Completo a la Grabación en HD durante 12 Meses</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">Revisita el taller cada vez que una fecha difícil vuelva a surgir</span>
+            </div>
+            <span class="val-strike">$800 MXN</span>
+          </div>
+
+          <div class="stack-item-row">
+            <div>
+              <strong style="color: var(--emerald-950); display: block;">✓ Privacidad Total Garantizada</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">Cámaras y micrófonos apagados para que vivas tu proceso en paz</span>
+            </div>
+            <span style="color: var(--emerald-800); font-weight: 700; font-size: 0.95rem;">INVALUABLE</span>
+          </div>
+
+          <!-- Total Stack Bar -->
+          <div class="stack-total-bar">
+            <div>
+              <span style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gold-900); font-weight: 700;">
+                Valor Total Acumulado:
+              </span>
+              <strong style="font-size: 1.4rem; color: var(--emerald-950); text-decoration: line-through;">$3,100 MXN</strong>
+            </div>
+            <div style="text-align: right;">
+              <span style="display: block; font-size: 0.82rem; font-weight: 700; color: #166534; text-transform: uppercase;">
+                Precio Especial de Preventa Hoy:
+              </span>
+              <strong style="font-size: 2.2rem; color: var(--emerald-950); font-weight: 800;">
+                $397 MXN <span style="font-size: 1rem; font-weight: 600; color: var(--text-muted);">(~$20 USD)</span>
+              </strong>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 3-TIER VALUE LADDER PRICING (HORMOZI / BRUNSON) ================= -->
+    <section class="section-padding" id="precios-taller" style="background: var(--canvas-surface);">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag section-tag-emerald">Tarifas de Preventa Oficial</span>
+          <h2>Elige Tu Pase para el Taller Online</h2>
+          <p>Cupos estrictamente limitados a 30 participantes en la sala Zoom para garantizar contención y respeto.</p>
+        </div>
+
+        <div class="ladder-grid">
+          
+          <!-- TIER 1: PASE GENERAL -->
+          <article class="ladder-card">
+            <div>
+              <span style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em;">
+                Nivel 01 · Individual
+              </span>
+              <h3 style="font-size: 1.45rem; color: var(--emerald-950); margin: 6px 0 10px;">
+                Pase General
+              </h3>
+              
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span class="price-strike-small">$497</span>
+                <span style="font-size: 2.5rem; font-weight: 800; color: var(--emerald-950);">$397</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">MXN</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 16px;">
+                ✓ Ahorras $100 MXN en preventa (~$20 USD)
+              </p>
+
+              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+                Acceso completo al taller en vivo <em>Aprender a Vivir con la Ausencia</em> con Diana Molina, cuaderno digital y grabación por 1 año.
+              </p>
+
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 24px;">
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> 2 Horas en vivo vía Zoom (Módulos 1 al 4)</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Cuaderno Digital de Escritura Terapéutica</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Protocolo de Emergencia en PDF</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Grabación completa en HD por 12 meses</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Privacidad total (cámaras y micrófonos off)</li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20quiero%20reservar%20mi%20Pase%20General%20en%20preventa%20($397%20MXN)%20para%20el%20taller%20Aprender%20a%20Vivir%20con%20la%20Ausencia" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;" target="_blank" rel="noopener">
+              Reservar Pase General ($397 MXN)
+            </a>
+          </article>
+
+          <!-- TIER 2: PASE DOBLE (FEATURED / BEST VALUE) -->
+          <article class="ladder-card featured-ladder">
+            <span class="ladder-badge">⭐ Más Popular · Mejor Valor</span>
+            
+            <div>
+              <span style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--gold-800); letter-spacing: 0.06em;">
+                Nivel 02 · Ambos Talleres
+              </span>
+              <h3 style="font-size: 1.45rem; color: var(--emerald-950); margin: 6px 0 10px;">
+                Pase Doble Integral
+              </h3>
+              
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span class="price-strike-small">$797</span>
+                <span style="font-size: 2.5rem; font-weight: 800; color: var(--emerald-950);">$697</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">MXN</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 16px;">
+                ✓ Ahorras $100 MXN en preventa (~$35 USD)
+              </p>
+
+              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+                <strong>Incluye ambos talleres completos de Diana:</strong> <em>Aprender a Vivir con la Ausencia</em> + <em>Lo Que Quedó Pendiente</em> (para cerrar conversaciones y vínculos inconclusos).
+              </p>
+
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 24px;">
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> <strong>Todo lo incluido en el Pase General</strong></li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> <strong>Segundo Taller Completo (2 horas adicionales):</strong> <em>Lo Que Quedó Pendiente</em> (Pilar 4 · Conectar)</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Diseñado para sanar relaciones difíciles, distantes o que terminaron sin despedida</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Segunda Guía Digital de Reparación Interna</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Ambas grabaciones en HD por 1 año</li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20quiero%20asegurar%20mi%20Pase%20Doble%20en%20preventa%20($697%20MXN)%20para%20los%20dos%20talleres" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;" target="_blank" rel="noopener">
+              Asegurar Pase Doble ($697 MXN)
+            </a>
+          </article>
+
+          <!-- TIER 3: PASE VIP TOTAL -->
+          <article class="ladder-card">
+            <div>
+              <span style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: #991B1B; background: #FEE2E2; padding: 2px 10px; border-radius: 100px; letter-spacing: 0.06em;">
+                Solo 12 Lugares
+              </span>
+              <h3 style="font-size: 1.45rem; color: var(--emerald-950); margin: 8px 0 10px;">
+                Pase VIP Total
+              </h3>
+              
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span class="price-strike-small">$900</span>
+                <span style="font-size: 2.5rem; font-weight: 800; color: var(--emerald-950);">$800</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">MXN</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 16px;">
+                ✓ Ahorras $100 MXN en preventa (~$40 USD)
+              </p>
+
+              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+                Para quienes desean intimidad profunda: ambos talleres completos más 45 min en grupo ultra reducido con Diana para diseñar su ritual de memoria.
+              </p>
+
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 24px;">
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> <strong>Todo lo incluido en el Pase Doble</strong></li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> <strong>Módulo 5 VIP en Vivo (45 min adicionales)</strong></li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> <strong>Máximo 12 personas en sala íntima</strong></li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Micrófono y cámara abiertos para hablar con Diana</li>
+                <li style="display: flex; gap: 8px;"><span style="color: var(--emerald-700); font-weight: bold;">✓</span> Diseño de tu ritual personal de memoria y plan de autocuidado</li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20quiero%20asegurar%20uno%20de%20los%2012%20lugares%20del%20Pase%20VIP%20Total%20en%20preventa%20($800%20MXN)" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;" target="_blank" rel="noopener">
+              Apartar Lugar VIP ($800 MXN)
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= GRANT CARDONE RISK REVERSAL: GARANTÍA 100% ================= -->
+    <section class="section-padding-sm" style="background: var(--canvas-alt); border-top: 1px solid var(--canvas-border);">
+      <div class="container container-narrow">
+        
+        <div style="background: var(--canvas-surface); border: 2px solid var(--gold-500); border-radius: var(--radius-2xl); padding: 36px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+          <div style="font-size: 3.5rem; line-height: 1;">🛡️</div>
+          <div style="flex: 1; min-width: 280px;">
+            <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--gold-800); letter-spacing: 0.05em;">
+              Garantía Ética Incondicional del 100%
+            </span>
+            <h3 style="font-size: 1.45rem; color: var(--emerald-950); margin: 6px 0 10px;">
+              Todo el riesgo corre por nuestra cuenta.
+            </h3>
+            <p style="font-size: 0.96rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Si participas en el taller en vivo y al terminar la sesión sientes que no te dio herramientas reales de contención, claridad y alivio para tu duelo, envíanos un mensaje por WhatsApp y <strong>te reembolsamos el 100% de tu dinero inmediatamente</strong>. Sin preguntas incómodas y sin pretextos.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= GRANT CARDONE: EL COSTO DE NO ACTUAR ================= -->
+    <section class="section-padding-sm" style="background: var(--emerald-950); color: #FFFFFF; text-align: center;">
+      <div class="container container-narrow">
+        <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.4rem); color: var(--gold-300); margin-bottom: 16px;">
+          ¿Cuánto te cuesta seguir pasando los domingos con este nudo en el pecho?
+        </h2>
+        <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.88); line-height: 1.7; max-width: 780px; margin: 0 auto 28px;">
+          El costo de no hacer nada no es cero. Te cuesta noches de insomnio, niebla mental en tu trabajo, agotamiento crónico y la culpa silenciosa cada vez que intentas sonreír. $397 pesos es menos de lo que cuesta una sola salida a cenar, pero te entrega las herramientas clínicas para volver a respirar en paz.
+        </p>
+        <a href="#precios-taller" class="btn btn-gold btn-lg">
+          Sí, Quiero Aliviar Mi Dolor Hoy ($397 MXN)
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= BIOGRAFÍA Y AUTORIDAD DIANA MOLINA ================= -->
+    <section class="section-padding" style="background: var(--canvas-surface);">
+      <div class="container container-narrow">
+        <div class="guide-split" style="align-items: center;">
+          
+          <div style="max-width: 360px;">
+            <div class="guide-image-frame">
+              <picture>
+                <source srcset="/assets/diana-portrait-2.webp" type="image/webp">
+                <img src="assets/diana-portrait-2.jpg" alt="Lic. Diana Molina, Psicóloga Clínica" width="500" height="500">
+              </picture>
+            </div>
+            <div style="text-align: center; margin-top: 14px;">
+              <strong style="color: var(--emerald-950); font-size: 1.15rem; display: block;">Lic. Diana Molina</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted);">Cédula Profesional Activa · Psicoterapeuta Clínica</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="section-tag section-tag-emerald">Tu Guía en este Proceso</span>
+            <h2 style="font-size: 2.2rem; color: var(--emerald-950); margin-bottom: 18px;">
+              Psicología Basada en Evidencia y Amor Exigente
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+              Soy Diana Molina. Durante más de diez años he acompañado en consulta individual a personas que enfrentan pérdidas desgarradoras, rupturas difíciles y duelos que parecían insuperables.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+              Diseñé este taller intensivo porque vi a demasiados pacientes pasar meses atrapados en la culpa retrospectiva de los <em>"hubiera"</em> o creyendo en el falso mito de que el tiempo todo lo cura. Mi compromiso contigo es entregarte herramientas científicas de regulación somática y escritura terapéutica para que honres la memoria de tu ser querido desde el respeto por tu propia vida.
+            </p>
+            <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20tengo%20una%20duda%20sobre%20el%20taller%20Aprender%20a%20Vivir%20con%20la%20Ausencia" class="btn btn-outline" target="_blank" rel="noopener">
+              Enviar Mensaje Personal a Diana por WhatsApp
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQS (MANEJO DE OBJECIONES RUSSELL BRUNSON) ================= -->
+    <section class="section-padding" style="background: var(--canvas-alt); border-top: 1px solid var(--canvas-border);">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <span class="section-tag">Preguntas Frecuentes</span>
+          <h2>Preguntas Frecuentes sobre el Taller</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          
+          <details style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 20px 24px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--emerald-950); font-size: 1.05rem;">¿Qué pasa si no me puedo conectar a la hora exacta?</summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              No te preocupes. Todas las personas inscritas reciben la grabación íntegra en alta definición en menos de 24 horas junto con la guía digital de ejercicios. Tendrás acceso ilimitado para verla durante 12 meses completos cuantas veces lo necesites.
+            </p>
+          </details>
+
+          <details style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 20px 24px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--emerald-950); font-size: 1.05rem;">¿Tengo que encender mi cámara o contar mi caso personal?</summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              No. En el Pase General y Pase Doble todas las cámaras y micrófonos permanecen apagados para garantizar tu total privacidad e intimidad emocional. Puedes realizar los ejercicios en tu cuaderno en privado y hacer preguntas anónimas por el chat. Solo quienes adquieren el Pase VIP participan con micrófono y cámara abiertos en el módulo final de 45 minutos.
+            </p>
+          </details>
+
+          <details style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 20px 24px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--emerald-950); font-size: 1.05rem;">¿Cuánto tiempo debe haber pasado desde la pérdida?</summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              El duelo no tiene fecha de caducidad. Este taller es igual de valioso si la pérdida ocurrió hace unas semanas o si han pasado meses o años pero notas que ciertas fechas o recuerdos aún detonan una angustia incontrolable.
+            </p>
+          </details>
+
+          <details style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 20px 24px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--emerald-950); font-size: 1.05rem;">¿Qué métodos de pago aceptan?</summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              Aceptamos tarjetas de débito y crédito a través de pago seguro con Stripe y Mercado Pago, además de transferencia bancaria directa (SPEI en México). Al hacer clic en reservar por WhatsApp te facilitamos el método que más te acomode.
+            </p>
+          </details>
+
+          <details style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 20px 24px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--emerald-950); font-size: 1.05rem;">¿Este taller sustituye la psicoterapia individual?</summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              Es un taller intensivo psicoeducativo y conductual de alta precisión. Te entrega herramientas inmediatas de regulación. Si tras el taller deseas un acompañamiento clínico individualizado a largo plazo, podrás solicitar admisión a las sesiones privadas 1 a 1 de Diana.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL (URGENCIA Y CIERRE) ================= -->
+    <section class="dark-emerald-section section-padding" style="text-align: center;">
+      <div class="container container-narrow">
+        <h2 style="font-size: clamp(2rem, 3.8vw, 2.7rem); color: #FFFFFF; margin-bottom: 16px;">
+          No tienes que atravesar la ausencia en soledad
+        </h2>
+        <p style="font-size: 1.2rem; margin-bottom: 32px; color: rgba(250, 247, 242, 0.88); line-height: 1.65;">
+          Aprovecha la tarifa especial de preventa de <strong>$397 MXN</strong> antes de que se llenen los 30 lugares disponibles de la sala Zoom.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="#precios-taller" class="btn btn-gold btn-lg" style="font-size: 1.1rem; padding: 18px 36px;">
+            Asegurar Mi Lugar en Preventa ($397 MXN)
+          </a>
+          <a href="https://wa.me/5215500000000?text=Hola%20Diana,%20tengo%20dudas%20sobre%20el%20taller%20Aprender%20a%20Vivir%20con%20la%20Ausencia" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);" target="_blank" rel="noopener">
+            Escribir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Detox Mental Wellness por Diana Molina. Todos los derechos reservados.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="index.html">Inicio</a>
+          <a href="programa.html">El Programa</a>
+          <a href="talleres.html">Talleres</a>
+          <a href="precios.html">Planes</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
