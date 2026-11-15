@@ -1,5 +1,5 @@
 /**
- * Exit-Intent Downsell Modal ($97 USD Pilar 1: Proteger)
+ * Exit-Intent Downsell Modal ($970 pesos Pilar 1: Proteger)
  */
 export function initExitIntent() {
   const modal = document.getElementById('downsellModal');

@@ -61,3 +61,4 @@ npm run preview
 ---
 
 © 2026 Detox Mental Wellness. Diseñado y gestionado por Nekigai Marketing.
+

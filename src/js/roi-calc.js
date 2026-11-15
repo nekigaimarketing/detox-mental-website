@@ -17,16 +17,16 @@ export function initRoiCalculator() {
     const hourlyRate = parseFloat(rateSlider.value);
 
     if (hoursVal) hoursVal.textContent = `${hoursPerWeek} hrs/semana`;
-    if (rateVal) rateVal.textContent = `$${hourlyRate} USD/hr`;
+    if (rateVal) rateVal.textContent = `$${hourlyRate} pesos/hr`;
 
     const yearlyHours = Math.round(hoursPerWeek * 52);
     const yearlyCost = Math.round(yearlyHours * hourlyRate);
 
     if (totalWastedHours) totalWastedHours.textContent = `${yearlyHours.toLocaleString()} horas`;
-    if (totalWastedCost) totalWastedCost.textContent = `$${yearlyCost.toLocaleString()} USD`;
+    if (totalWastedCost) totalWastedCost.textContent = `$${yearlyCost.toLocaleString()} pesos`;
 
-    // Contrast with VIP program ($397 USD)
-    const vipPrice = 397;
+    // Contrast with VIP program ($3,970 pesos)
+    const vipPrice = 3970;
     const timesPaid = (yearlyCost / vipPrice).toFixed(1);
     if (savingsRoi) {
       savingsRoi.textContent = `Detox Mental se paga solo ${timesPaid} veces en tu primer año de recuperación.`;
