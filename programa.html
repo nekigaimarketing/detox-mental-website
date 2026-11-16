@@ -29,15 +29,14 @@
 
       <ul class="nav-menu" id="primaryNavMenu">
         <li><a href="index.html" class="nav-link">Inicio</a></li>
-        <li><a href="programa.html" class="nav-link active">El Programa (5 Pilares)</a></li>
-        <li><a href="talleres.html" class="nav-link">Talleres Online</a></li>
-        <li><a href="precios.html" class="nav-link">Planes e Inversión</a></li>
-        <li><a href="sobre-diana.html" class="nav-link">Sobre Diana Molina</a></li>
-        <li><a href="contacto.html" class="nav-link">Contacto y Admisión</a></li>
+        <li><a href="programa.html" class="nav-link active">El Programa</a></li>
+        <li><a href="talleres.html" class="nav-link">Talleres</a></li>
+        <li><a href="sobre-diana.html" class="nav-link">Sobre Diana</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="precios.html" class="btn btn-primary btn-sm">Empezar Ahora</a>
+        <a href="#planes" class="btn btn-primary btn-sm">Empezar Ahora</a>
         <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir menú">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -292,6 +291,329 @@
       </div>
     </section>
 
+    <!-- ================= SECCIÓN DE PLANES E INVERSIÓN (INTEGRADA) ================= -->
+
+    <!-- INTRODUCCIÓN A LA INVERSIÓN -->
+    <section class="section-padding-sm" style="background: var(--canvas-alt); border-top: 1px solid var(--canvas-border); border-bottom: 1px solid var(--canvas-border);" id="inversion">
+      <div class="container" style="text-align: center;">
+        <span class="section-tag section-tag-emerald">Transparencia Radical</span>
+        <h2 style="max-width: 900px; margin: 0 auto 16px; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--emerald-950);">
+          ¿Cuánto te está costando <span class="serif-accent-emerald">seguir igual</span>?
+        </h2>
+        <p style="max-width: 760px; margin: 0 auto 10px; font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6;">
+          Invertir en ti mismo asusta solo cuando no mides lo que ya estás perdiendo en noches sin dormir, relaciones desgastantes y oportunidades desperdiciadas por miedo y sobrepensar.
+        </p>
+      </div>
+    </section>
+
+    <!-- HORMOZI ROI / COST OF INACTION CALCULATOR -->
+    <section class="section-padding-sm" style="background: var(--canvas-bg); border-bottom: 1px solid var(--canvas-border);" id="calculadora-roi">
+      <div class="container container-narrow">
+        <div class="section-header" style="margin-bottom: 30px;">
+          <span class="section-tag">Calculadora Hormozi</span>
+          <h2>El Costo Real del Estancamiento</h2>
+          <p>Mueve los controles y descubre cuánto dinero y tiempo de vida te está robando la falta de límites y el overthinking.</p>
+        </div>
+
+        <div style="background: var(--canvas-surface); border: 2px solid var(--gold-400); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-md);">
+          
+          <div style="margin-bottom: 28px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 700;">
+              <label for="calcHoursSlider">Horas semanales atrapado en rumiación, quejas o discusiones:</label>
+              <span id="calcHoursVal" style="color: var(--emerald-800); font-size: 1.1rem;">10 hrs/semana</span>
+            </div>
+            <input type="range" id="calcHoursSlider" min="2" max="30" value="10" step="1" style="width: 100%; accent-color: var(--emerald-800); cursor: pointer;">
+          </div>
+
+          <div style="margin-bottom: 32px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 700;">
+              <label for="calcRateSlider">Valor estimado de una hora de tu paz mental o trabajo:</label>
+              <span id="calcRateVal" style="color: var(--gold-700); font-size: 1.1rem;">$350 pesos/hr</span>
+            </div>
+            <input type="range" id="calcRateSlider" min="150" max="1500" value="350" step="50" style="width: 100%; accent-color: var(--gold-600); cursor: pointer;">
+          </div>
+
+          <!-- Dynamic Output Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: var(--canvas-bg); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--canvas-border); text-align: center;">
+            <div>
+              <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Tiempo Desperdiciado al Año:</span>
+              <div id="calcTotalHours" style="font-size: 2.2rem; font-weight: 800; color: var(--crimson-red); margin-top: 4px;">520 horas</div>
+            </div>
+            <div>
+              <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Costo Financiero y Emocional Anual:</span>
+              <div id="calcTotalCost" style="font-size: 2.2rem; font-weight: 800; color: var(--emerald-950); margin-top: 4px;">$182,000 pesos</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; text-align: center;">
+            <p id="calcSavingsRoi" style="font-size: 1.05rem; font-weight: 700; color: var(--emerald-800); margin: 0;">
+              Detox Mental se paga solo en menos de 2 semanas de recuperación mental.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 PRICING TIERS -->
+    <section class="section-padding" id="planes">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag section-tag-emerald">3 Niveles de Acompañamiento</span>
+          <h2>Elige tu Nivel de Compromiso</h2>
+          <p>Todos los planes cuentan con acceso completo a los 5 Pilares y la garantía incondicional de 14 días.</p>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- PLAN BÁSICO -->
+          <div class="pricing-card" id="pricingCardBasico">
+            <h3 class="pricing-plan-name">Detox Básico</h3>
+            <p class="pricing-plan-desc">Aprende la metodología y avanza a tu propio ritmo con las grabaciones y la IA.</p>
+            <div class="pricing-price-wrap">
+              <span class="pricing-amount">$2,970</span>
+              <span class="pricing-currency">pesos / Pago único</span>
+            </div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Acceso completo e ilimitado a los 5 Pilares
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Asistente de IA Conductual 24/7
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Cuadernos de trabajo en PDF descargables
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Acceso a la comunidad privada de alumnos
+              </li>
+              <li class="pricing-feature-item" style="opacity: 0.45; text-decoration: line-through;">
+                <span style="width: 18px; text-align: center;">✕</span>
+                Llamadas grupales semanales con Diana
+              </li>
+              <li class="pricing-feature-item" style="opacity: 0.45; text-decoration: line-through;">
+                <span style="width: 18px; text-align: center;">✕</span>
+                Sesiones individuales 1 a 1 privadas
+              </li>
+            </ul>
+            <a href="https://wa.me/?text=Hola%20Diana,%20quiero%20inscribirme%20al%20Plan%20Básico%20de%20Detox%20Mental" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+              Inscribirme a Básico ($2,970 pesos)
+            </a>
+          </div>
+
+          <!-- PLAN VIP (DESTACADO) -->
+          <div class="pricing-card featured" id="pricingCardVip">
+            <span class="pricing-badge-popular">★ Más Recomendado</span>
+            <h3 class="pricing-plan-name">Detox VIP</h3>
+            <p class="pricing-plan-desc">Acompañamiento grupal en vivo cada semana con Diana para resolver dudas reales.</p>
+            <div class="pricing-price-wrap">
+              <span class="pricing-amount">$3,970</span>
+              <span class="pricing-currency" style="color: rgba(255,255,255,0.75);">pesos / Pago único</span>
+            </div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <strong>Todo lo incluido en el Plan Básico</strong>
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Llamadas grupales semanales en vivo con Diana Molina
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Sesiones de "Silla Caliente" para auditar tus límites
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Grabaciones de todas las sesiones pasadas y futuras
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Comunidad exclusiva VIP con soporte continuo
+              </li>
+              <li class="pricing-feature-item" style="opacity: 0.45; text-decoration: line-through;">
+                <span style="width: 18px; text-align: center;">✕</span>
+                Sesiones 1 a 1 privadas personales
+              </li>
+            </ul>
+            <a href="https://wa.me/?text=Hola%20Diana,%20quiero%20inscribirme%20al%20Plan%20VIP%20de%20Detox%20Mental" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%;">
+              Inscribirme a Detox VIP ($3,970 pesos)
+            </a>
+          </div>
+
+          <!-- PLAN PREMIUM 1 A 1 -->
+          <div class="pricing-card" id="pricingCardPremium">
+            <h3 class="pricing-plan-name">Detox Premium</h3>
+            <p class="pricing-plan-desc">Intervención clínica privada 1 a 1 con Diana Molina. Cupos estrictamente limitados.</p>
+            <div class="pricing-price-wrap">
+              <span class="pricing-amount">$9,970</span>
+              <span class="pricing-currency">pesos / Solo 5 plazas</span>
+            </div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <strong>Todo lo incluido en el Plan VIP</strong>
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                4 Sesiones individuales privadas (1 a 1) por Zoom
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Acceso prioritario a WhatsApp personal de Diana
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Auditoría y diseño de tu Plan de Acción Conductual
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Revisión personalizada de ejercicios y límites
+              </li>
+            </ul>
+            <a href="contacto.html?plan=premium" class="btn btn-outline" style="width: 100%;">
+              Postular a Cupo 1 a 1
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DETAILED COMPARISON TABLE -->
+    <section class="section-padding-sm" style="background: var(--canvas-surface);">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 36px;">
+          <h2>Tabla Comparativa Detallada</h2>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; min-width: 600px; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--emerald-800);">
+                <th style="padding: 16px; font-size: 1.1rem; color: var(--emerald-950);">Beneficio o Herramienta</th>
+                <th style="padding: 16px; text-align: center; color: var(--text-muted);">Básico ($2,970 pesos)</th>
+                <th style="padding: 16px; text-align: center; color: var(--gold-700); font-weight: 800;">VIP ($3,970 pesos)</th>
+                <th style="padding: 16px; text-align: center; color: var(--emerald-800); font-weight: 800;">Premium ($9,970 pesos)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--canvas-border);">
+                <td style="padding: 14px 16px; font-weight: 600;">Videos de los 5 Pilares (Acceso de por vida)</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--canvas-border);">
+                <td style="padding: 14px 16px; font-weight: 600;">Cuadernos de Trabajo Práctico (PDFs)</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--canvas-border);">
+                <td style="padding: 14px 16px; font-weight: 600;">Asistente de IA Conductual 24/7</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--canvas-border);">
+                <td style="padding: 14px 16px; font-weight: 600;">Comunidad Privada de Alumnos</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700);">✓</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--canvas-border); background: var(--gold-50);">
+                <td style="padding: 14px 16px; font-weight: 700; color: var(--emerald-950);">Llamadas Grupales Semanales en Vivo con Diana</td>
+                <td style="padding: 14px; text-align: center; color: var(--crimson-red);">✕</td>
+                <td style="padding: 14px; text-align: center; color: var(--gold-700); font-weight: bold;">✓ Semanal</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-700); font-weight: bold;">✓ Semanal</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--canvas-border); background: var(--emerald-50);">
+                <td style="padding: 14px 16px; font-weight: 700; color: var(--emerald-950);">Sesiones Privadas 1 a 1 con Diana Molina</td>
+                <td style="padding: 14px; text-align: center; color: var(--crimson-red);">✕</td>
+                <td style="padding: 14px; text-align: center; color: var(--crimson-red);">✕</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-800); font-weight: bold;">✓ 4 Sesiones</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--canvas-border);">
+                <td style="padding: 14px 16px; font-weight: 700; color: var(--emerald-950);">WhatsApp Personal Directo con Diana</td>
+                <td style="padding: 14px; text-align: center; color: var(--crimson-red);">✕</td>
+                <td style="padding: 14px; text-align: center; color: var(--crimson-red);">✕</td>
+                <td style="padding: 14px; text-align: center; color: var(--emerald-800); font-weight: bold;">✓ Prioritario</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUARANTEE BOX -->
+    <section class="section-padding-sm" style="background: var(--gold-100); border-top: 1px solid var(--gold-300); border-bottom: 1px solid var(--gold-300);">
+      <div class="container">
+        <div class="guarantee-container">
+          <div class="guarantee-seal">
+            <span class="days">14</span>
+            <span class="text">Días de<br>Garantía</span>
+          </div>
+          <div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--emerald-950);">Garantía Radical de Claridad Mental</h3>
+            <p style="font-size: 1.05rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+              Si entras a Detox Mental, aplicas las tareas de los primeros módulos y sientes que Diana es puro bla bla bla y no aprendiste nada nuevo para tu vida, te devolvemos el 100% de tu dinero. <strong>Cero letras pequeñas, cero resentimientos.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (TOUGH LOVE FAQ) -->
+    <section class="section-padding">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <span class="section-tag">Preguntas Frecuentes</span>
+          <h2>Dudas Resueltas sin Rodeos</h2>
+          <p>Lo que necesitas saber antes de dar el paso.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <div style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; color: var(--emerald-950); margin-bottom: 8px;">¿Es esto terapia clínica tradicional o coaching?</h3>
+            <p style="margin: 0; font-size: 0.95rem;">
+              Es un programa de <strong>psicología conductual aplicada</strong>. A diferencia del psicoanálisis tradicional donde vas a hablar de tu infancia por dos años, aquí trabajamos con protocolos conductuales enfocados en modificar lo que haces hoy para transformar tus resultados mañana. Diana es psicóloga con licencia y más de 10 años de experiencia clínica.
+            </p>
+          </div>
+
+          <div style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; color: var(--emerald-950); margin-bottom: 8px;">¿Qué pasa si no tengo tiempo suficiente cada semana?</h3>
+            <p style="margin: 0; font-size: 0.95rem;">
+              Las lecciones en video están condensadas en módulos de 10 a 15 minutos directos al grano. Si tienes tiempo para ver historias de Instagram o TikTok por 40 minutos al día, tienes tiempo para hacer tu Detox Mental. Dejar de mentirte sobre "no tener tiempo" es el primer paso del programa.
+            </p>
+          </div>
+
+          <div style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; color: var(--emerald-950); margin-bottom: 8px;">¿Cómo funciona la Inteligencia Artificial 24/7?</h3>
+            <p style="margin: 0; font-size: 0.95rem;">
+              Es un asistente entrenado exclusivamente con las directrices conductuales, protocolos y tono de amor duro de Diana Molina. Cuando te encuentres al borde de mandar un mensaje a tu ex a medianoche o a punto de ceder ante un chantaje familiar, la IA te responde con el protocolo exacto para mantenerte firme.
+            </p>
+          </div>
+
+          <div style="background: var(--canvas-surface); border: 1px solid var(--canvas-border); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; color: var(--emerald-950); margin-bottom: 8px;">¿Puedo pagar desde México, Estados Unidos o cualquier país de LATAM?</h3>
+            <p style="margin: 0; font-size: 0.95rem;">
+              Sí. Aceptamos tarjetas de crédito, débito, transferencias y pasarelas internacionales. El cargo se procesa en tu moneda local o pesos mexicanos según tu banco.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- CALL TO ACTION BANNER -->
     <section class="dark-emerald-section section-padding-sm" style="text-align: center;">
       <div class="container container-narrow">
@@ -299,7 +621,7 @@
         <p style="font-size: 1.15rem; margin-bottom: 30px; color: rgba(250,247,242,0.85);">
           Puedes elegir el formato que mejor se adapte a tu ritmo: autónomo (Básico), con acompañamiento grupal en vivo (VIP), o mentoría privada 1 a 1 (Premium).
         </p>
-        <a href="precios.html" class="btn btn-gold btn-lg">Revisar Planes y Comenzar</a>
+        <a href="#planes" class="btn btn-gold btn-lg">Elegir Mi Plan y Comenzar</a>
       </div>
     </section>
 
@@ -313,7 +635,7 @@
         <div style="display: flex; gap: 20px;">
           <a href="index.html">Inicio</a>
           <a href="talleres.html">Talleres</a>
-          <a href="precios.html">Planes</a>
+          <a href="#planes">Planes e Inversión</a>
           <a href="contacto.html">Contacto</a>
         </div>
       </div>
