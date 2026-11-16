@@ -232,13 +232,13 @@
 
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      max-width: 1080px;
+      max-width: 1140px;
       margin: 36px auto 0;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
       .reviews-grid {
         grid-template-columns: 1fr;
       }
@@ -574,6 +574,11 @@
 
         <!-- ================= DEDICATED VIDEO CONTAINER ================= -->
         <section class="video-sales-wrapper" id="video-seccion" aria-label="Video del taller">
+          <!-- Live Details Strip Right Above Video -->
+          <div style="padding: 4px 12px 14px; text-align: center; color: rgba(255, 255, 255, 0.95); font-size: 0.98rem; font-weight: 600; line-height: 1.45;">
+            📅 <strong>Taller en Vivo (2 Días):</strong> 2 horas cada día vía Zoom · Participación 100% privada (cámaras opcionales)
+          </div>
+
           <!-- 16:9 Video Box (Ready for Video Embed) -->
           <div class="video-container" id="videoPlayerBox">
             <div class="video-placeholder-poster" onclick="alert('El video se activará con tu enlace oficial de YouTube/Vimeo/Loom.');">
@@ -587,11 +592,7 @@
           </div>
 
           <!-- Video Under-Bar CTA (Centered, Large Gold Button & Security) -->
-          <div style="padding: 24px 16px 14px; text-align: center;">
-            <div style="color: rgba(255, 255, 255, 0.92); font-size: 0.96rem; margin-bottom: 16px; font-weight: 500;">
-              📅 <strong>Taller en Vivo (2 Días):</strong> 2 horas cada día vía Zoom · Participación 100% privada (cámaras opcionales)
-            </div>
-
+          <div style="padding: 22px 16px 14px; text-align: center;">
             <div style="display: flex; justify-content: center; margin-bottom: 16px;">
               <a href="#precios-taller" class="btn btn-gold" style="font-size: clamp(1.15rem, 2.5vw, 1.35rem); font-weight: 800; padding: 20px 48px; border-radius: 9999px; box-shadow: 0 12px 30px rgba(212, 175, 55, 0.45), 0 0 0 3px rgba(212, 175, 55, 0.25); text-transform: none; display: inline-flex; align-items: center; gap: 12px;">
                 Asegurar Mi Lugar en Preventa ($397 pesos) <span style="font-size: 1.35rem;">→</span>
@@ -741,32 +742,6 @@
                 </div>
               </div>
               <button class="review-evidence-pill" onclick="openReviewModal('assets/reviews/review-3.jpg')">
-                📷 Ver captura original
-              </button>
-            </div>
-          </article>
-
-          <!-- REVIEW 4 -->
-          <article class="review-item-card">
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <h3 class="review-highlight">
-                "Se sintió como estar platicando con amigos en un cafecito. Una experiencia muy 'eye opening'."
-              </h3>
-              <p class="review-text">
-                "Estuvo muy a gusto el ambiente del taller. Se sintió como si estuviera platicando con amigos en un cafecito. Me gustó mucho que hubo un ejercicio para poner en práctica el comunicarte asertivamente, paso a paso, que es algo en lo que yo me quiero enfocar. Fue una experiencia muy 'eye opening'. Terminé el taller con más conocimiento de mí y lo que yo quiero. 🙏🏼"
-              </p>
-            </div>
-
-            <div class="review-footer">
-              <div class="review-author-meta">
-                <div class="review-avatar">M</div>
-                <div>
-                  <strong style="font-size: 0.9rem; color: var(--emerald-950); display: block;">Participante del Taller</strong>
-                  <span style="font-size: 0.78rem; color: var(--text-muted);">Experiencia Verificada</span>
-                </div>
-              </div>
-              <button class="review-evidence-pill" onclick="openReviewModal('assets/reviews/review-4.jpg')">
                 📷 Ver captura original
               </button>
             </div>
