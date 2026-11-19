@@ -4,5 +4,5 @@ compatibility_date = "2026-11-18"
 
 # Para desplegar en tu dominio propio en Cloudflare:
 # routes = [
-#   { pattern = "detoxmenta.com.mx/*", zone_name = "detoxmenta.com.mx" }
+#   { pattern = "detoxmental.com.mx/*", zone_name = "detoxmental.com.mx" }
 # ]

@@ -1,6 +1,6 @@
 /**
  * Cloudflare Worker: Reverse Proxy & Edge Router para Detox Mental Website
- * Conecta tu dominio en Cloudflare (ej. detoxmenta.com.mx) directamente
+ * Conecta tu dominio en Cloudflare (ej. detoxmental.com.mx) directamente
  * al repositorio y despliegue de GitHub Pages:
  * https://nekigaimarketing.github.io/detox-mental-website/
  * 

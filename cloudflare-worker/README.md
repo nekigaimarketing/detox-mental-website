@@ -1,8 +1,8 @@
 # Despliegue de Cloudflare Worker para Detox Mental Website
 
-Este Worker conecta tu dominio en Cloudflare (ej. `detoxmenta.com.mx` o un subdominio gratuito `*.workers.dev`) directamente con tu repositorio de GitHub Pages (`https://nekigaimarketing.github.io/detox-mental-website/`), asegurando:
+Este Worker conecta tu dominio en Cloudflare (ej. `detoxmental.com.mx` o un subdominio gratuito `*.workers.dev`) directamente con tu repositorio de GitHub Pages (`https://nekigaimarketing.github.io/detox-mental-website/`), asegurando:
 1. **Streaming fluido del video de 44MB (`Promo Taller Ausencia WEB.mp4`)** con soporte de `Range` bytes sin chocar con el límite de 25MB de Cloudflare Pages.
-2. **URLs limpias** (ej. `detoxmenta.com.mx/taller-ausencia` carga directo `taller-ausencia.html`).
+2. **URLs limpias** (ej. `detoxmental.com.mx/taller-ausencia` carga directo `taller-ausencia.html`).
 3. **Caché ultrarrápida en el Edge de Cloudflare** para imágenes, videos y estilos.
 
 ---
@@ -20,7 +20,7 @@ Este Worker conecta tu dominio en Cloudflare (ej. `detoxmenta.com.mx` o un subdo
    - Regresa a la configuración del Worker recién creado.
    - Ve a la pestaña **Settings** (Configuración) → **Domains & Routes** (Dominios y rutas).
    - Haz clic en **Add** (Agregar) → **Custom Domain** (Dominio personalizado).
-   - Escribe tu dominio (ej. `detoxmenta.com.mx` o `taller.detoxmenta.com.mx`).
+   - Escribe tu dominio (ej. `detoxmental.com.mx` o `taller.detoxmental.com.mx`).
    - Cloudflare configurará automáticamente los certificados SSL y el enrutamiento.
 
 ---
